@@ -3,8 +3,7 @@ library(Cairo)
 rstan_options(auto_write = TRUE)
 options(mc.cores = parallel::detectCores())
 
-setwd("Z:/Vroni/Olive Baboons/analyses/DSI/")  
-d=read.csv("Z:/Vroni/Olive Baboons/analyses/DSI/input_consort effort DSI_11.02.2018.csv", header=T, check.names=F, stringsAsFactors=F, sep=",")
+#The dataframe is called 'd'
 
 #rank=score_doc
 #group=group_next ("PHG","ENK")
