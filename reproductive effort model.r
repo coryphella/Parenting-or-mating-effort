@@ -3,7 +3,7 @@ library(Cairo)
 rstan_options(auto_write = TRUE)
 options(mc.cores = parallel::detectCores())
 
-#The dataframe is called 'd'
+#The dataframe is 'd'
 
 #rank=score_doc
 #group=group_next ("PHG","ENK")
@@ -21,7 +21,7 @@ cor(d$nmales,d$PHG)
 0.8507831
 
 ############################################################
-#C1
+#RE1
 consort <- map2stan( 
 alist(
 realdad ~ dbinom( 1 , p ) ,
@@ -43,7 +43,7 @@ par(mfrow=c(1,1))
 setwd("Z:/Vroni/Olive Baboons/analyses/DSI/final/results")
 write.table(output,"output_consort.csv",sep=",") 
 
-#C0
+#RE0
 consort_null <- map2stan( 
 alist(
 realdad ~ dbinom( 1 , p ) ,
