@@ -1,11 +1,11 @@
 library(rethinking)
 rstan_options(auto_write = TRUE)
 options(mc.cores = parallel::detectCores())
-#d=read.table(file="input_parenting effort_cyclflat_red.csv",header=T,sep=",")
-d=read.table(file="/Users/brendanbarrett/Downloads/input_parenting effort_cyclflat_red_2.2.2018.csv",header=T,sep=",")
+
+
 
 #############################
-
+#d= dataframe
 #rank=score_cyclf
 #group=cyclf_residence ("PHG","ENK")
 #sire current infant=father (0,1)
