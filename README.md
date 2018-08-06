@@ -1,3 +1,3 @@
-# Bonds with benefits
-Model and plotting code for Bonds with benefits: The form and function of male-female bonds in olive baboons (Papio anubis).
+# Parenting or mating effort
+Model and plotting code for: Male-female relationships in olive baboons (Papio anubis): parenting or mating effort?
 Veronika Städele, Eila Roberts, Brendan Barrett, Shirley Strum, Linda Vigilant, Joan Silk.
