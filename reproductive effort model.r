@@ -21,7 +21,7 @@ cor(d$nmales,d$PHG)
 0.8507831
 
 ############################################################
-#RE1
+#C1
 consort <- map2stan( 
 alist(
 realdad ~ dbinom( 1 , p ) ,
@@ -43,7 +43,7 @@ par(mfrow=c(1,1))
 setwd("Z:/Vroni/Olive Baboons/analyses/DSI/final/results")
 write.table(output,"output_consort.csv",sep=",") 
 
-#RE0
+#C0
 consort_null <- map2stan( 
 alist(
 realdad ~ dbinom( 1 , p ) ,
