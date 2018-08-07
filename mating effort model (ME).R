@@ -2,14 +2,8 @@ library(rethinking)
 rstan_options(auto_write = TRUE)
 options(mc.cores = parallel::detectCores())
 
-#if on vroni computer
-setwd("Z:/Vroni/Olive Baboons/analyses/DSI/")
-cf=read.table(file="input_mating effort_cf_plus dads.csv",header=T,sep=",")
-
-#brendan server data load
-cf=read.table(file="input_mating effort_cf_plus dads.csv",header=T,sep=",")
-lac=read.table(file="input_mating effort_lac_plus dads.csv",header=T,sep=",")
-
+#cf=dataframe cycling/flat
+#lac=dataframe lactation
 #DSI=rDSI (numeric)
 #rank=score_doc (numeric)
 #group=group_next ("PHG","ENK")
@@ -47,9 +41,7 @@ output_cf2=precis(m_effort_cf2 , depth=2 , digits=2)@output
 plot(precis(m_effort_cf2))
 plot(m_effort_cf2)
 par(mfrow=c(1,1))
-
-setwd("Z:/Vroni/Olive Baboons/analyses/DSI/final/results")
-write.table(output_cf2,"output_cf2_control for dads.csv",sep=",")	
+	
 
 #ME3
 m_effort_cf3 <- map2stan(  
@@ -69,9 +61,7 @@ output_cf3=precis(m_effort_cf3 , depth=2 , digits=2)@output
 plot(precis(m_effort_cf3))
 plot(m_effort_cf3)
 par(mfrow=c(1,1))
-		 
-setwd("Z:/Vroni/Olive Baboons/analyses/DSI/final/results")
-write.table(output_cf3,"output_cf3_control for dads.csv",sep=",")
+
 
 #ME1
 m_effort_cf1 <- map2stan(  
@@ -90,9 +80,7 @@ output_cf1=precis(m_effort_cf1 , depth=2 , digits=2)@output
 plot(precis(m_effort_cf1))
 plot(m_effort_cf1)
 par(mfrow=c(1,1))
-		 
-setwd("Z:/Vroni/Olive Baboons/analyses/DSI/final/results")
-write.table(output_cf1,"output_cf1_control for dads.csv",sep=",")
+
 
 m_effort_cf_null <- map2stan(  
 alist(
@@ -108,9 +96,7 @@ output_cf_null=precis(m_effort_cf_null , depth=2 , digits=2)@output
 plot(precis(m_effort_cf_null))
 plot(m_effort_cf_null)
 par(mfrow=c(1,1))
-		 
-setwd("Z:/Vroni/Olive Baboons/analyses/DSI/final/results")
-write.table(output_cf_null,"output_cf0_control for dads.csv",sep=",")
+
 		 
 compare(m_effort_cf1,m_effort_cf2,m_effort_cf_null,m_effort_cf3)
 
@@ -119,8 +105,7 @@ compare(m_effort_cf1,m_effort_cf2,m_effort_cf_null,m_effort_cf3)
 a_male_z <- matrix(0,1000,length(unique(cf$male_index)))
 a_mom_z <- matrix(0,1000,length(unique(cf$mom_index)))
 		 
-setwd("Z:/Vroni/Olive Baboons/analyses/DSI/final/plotting")
-pdf("mating effort_cycf_interaction.pdf",width=16/cm(1),height=9.5/cm(1))		 
+		 
 		 
 par(mfrow=c(1,2))
 dsi.seq <- seq(min(cf$s_rDSI),max(cf$s_rDSI),length.out=30)
@@ -195,10 +180,10 @@ axis(1,cex.axis=0.8,at= xxt,labels=xt,line=-.9,col=NA)
 mtext(side=3,line=0.4,text="b) Males are sires of current infant",cex=0.9)
 
 mtext(side=1,line=1,text="Dydadic sociality index - Cycling (flat)",cex=0.9,outer=TRUE)
-dev.off()
+
 ####################################################################
 ####################Lactation#############################
-lac=read.table(file="input_mating effort_lac_plus dads.csv",header=T,sep=",")
+
 
 lac$partner=droplevels(lac$partner)
 lac$partner=droplevels(lac$momid)
@@ -228,8 +213,6 @@ plot(precis(m_effort_lac2))
 plot(m_effort_lac2)
 par(mfrow=c(1,1))
 		 
-setwd("Z:/Vroni/Olive Baboons/analyses/DSI/final/results")
-write.table(output_lac2,"output_lac2_control for dads.csv",sep=",")
 
 #ME3
 m_effort_lac3 <- map2stan(  
@@ -249,8 +232,7 @@ plot(precis(m_effort_lac3))
 plot(m_effort_lac3)
 par(mfrow=c(1,1))
 		 
-setwd("Z:/Vroni/Olive Baboons/analyses/DSI/final/results")
-write.table(output_lac3,"output_lac3_control for dads.csv",sep=",")		  
+	  
 
 #ME1	  
 m_effort_lac1 <- map2stan(  
@@ -270,8 +252,6 @@ plot(precis(m_effort_lac1))
 plot(m_effort_lac1)
 par(mfrow=c(1,1))
 		 
-setwd("Z:/Vroni/Olive Baboons/analyses/DSI/final/results")
-write.table(output_lac3,"output_lac3_control for dads.csv",sep=",")	
 		  
 #ME0		  
 m_effort_lac_null <- map2stan(  
@@ -289,17 +269,11 @@ plot(precis(m_effort_lac_null))
 plot(m_effort_lac_null)
 par(mfrow=c(1,1))
 		 
-setwd("Z:/Vroni/Olive Baboons/analyses/DSI/final/results")
-write.table(output_lac_null,"output_lac0_control for dads.csv",sep=",")	
-
 compare(m_effort_lac1,m_effort_lac2,m_effort_lac_null,m_effort_lac3)
   
 		  
 #Plot interaction
-setwd("Z:/Vroni/Olive Baboons/analyses/DSI/final/plotting")
-pdf("mating effort_lac_interaction.pdf",width=16/cm(1),height=9.5/cm(1))		 
-
-a_male_z <- matrix(0,1000,length(unique(lac$male_index)))
+ a_male_z <- matrix(0,1000,length(unique(lac$male_index)))
 a_mom_z <- matrix(0,1000,length(unique(lac$mom_index)))		  
 		  
 par(mfrow=c(1,2))
@@ -375,8 +349,7 @@ axis(1,cex.axis=0.8,at= xxt,labels=xt,line=-.9,col=NA)
 mtext(side=3,line=0.4,text="b) Males are sires of current infant",cex=0.9)
 
 mtext(side=1,line=1,text="Dydadic sociality index - Lactation",cex=0.9,outer=TRUE)
-dev.off()
-		  
+	  
 #####################
 #Plot without interaction
 a_male_z <- matrix(0,1000,length(unique(lac$male_index)))
