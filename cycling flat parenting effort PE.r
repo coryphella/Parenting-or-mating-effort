@@ -14,7 +14,7 @@ options(mc.cores = parallel::detectCores())
 #id individual 2= prt2 (integer)
 #id dyad=dyad (integer)
 
-#each idea should be in each column
+#each id should be in each column
 unique(d$prt1[!(d$prt1 %in% d$prt2)]) 
 unique(d$prt2[!(d$prt2 %in% d$prt1)]) 
 
