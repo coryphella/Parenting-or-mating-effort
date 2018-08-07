@@ -1,9 +1,9 @@
 library(rethinking)
 rstan_options(auto_write = TRUE)
 options(mc.cores = parallel::detectCores())
-d=read.table(file="input_parenting effort_lac_red_07.02.2018.csv",header=T,sep=",")
-#############################
 
+#############################
+#d=dataframe
 #rank=score_lac
 #group=lac_residence ("PHG","ENK")
 #sire current infant=father (0,1)
@@ -12,7 +12,7 @@ d=read.table(file="input_parenting effort_lac_red_07.02.2018.csv",header=T,sep="
 #id individual 2= prt2 (integer)
 #id dyad=dyad (integer)
 
-#each idea should be in each column
+#each id should be in each column
 unique(d$prt1[!(d$prt1 %in% d$prt2)]) 
 unique(d$prt2[!(d$prt2 %in% d$prt1)]) 
 
