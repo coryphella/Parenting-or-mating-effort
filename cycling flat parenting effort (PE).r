@@ -2,8 +2,6 @@ library(rethinking)
 rstan_options(auto_write = TRUE)
 options(mc.cores = parallel::detectCores())
 
-
-
 #############################
 #d= dataframe
 #rank=score_cyclf
