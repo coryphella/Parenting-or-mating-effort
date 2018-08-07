@@ -40,8 +40,8 @@ plot(precis(consort))
 plot(consort)
 par(mfrow=c(1,1))
 
-setwd("Z:/Vroni/Olive Baboons/analyses/DSI/final/results")
-write.table(output,"output_consort.csv",sep=",") 
+
+
 
 #C0
 consort_null <- map2stan( 
@@ -57,8 +57,8 @@ realdad ~ dbinom( 1 , p ) ,
 compare(consort,consort_null)
 
 #Plot DSI and rank together
-setwd("Z:/Vroni/Olive Baboons/analyses/DSI/final/plotting")
-pdf("consort effort_DSI.pdf", height=9/cm(1),width=16/cm(1))
+
+
 
 a_male_z=matrix(0,1000,length(unique(d$male_index)))
 a_mom_z=matrix(0,1000,length(unique(d$mom_index)))
@@ -128,5 +128,5 @@ axis(1, tck=-0.015,cex=1,at=xxt,labels=NA)
 axis(1,cex.axis=0.8,at= xxt,labels=xt,line=-.9,col=NA)
 
 mtext(side=1,line=1,text="Male rank",cex=0.9)
-dev.off()
+
 ######
