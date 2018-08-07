@@ -57,9 +57,6 @@ realdad ~ dbinom( 1 , p ) ,
 compare(consort,consort_null)
 
 #Plot DSI and rank together
-
-
-
 a_male_z=matrix(0,1000,length(unique(d$male_index)))
 a_mom_z=matrix(0,1000,length(unique(d$mom_index)))
 
