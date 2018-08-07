@@ -104,8 +104,7 @@ compare(m_effort_cf1,m_effort_cf2,m_effort_cf_null,m_effort_cf3)
 		 
 a_male_z <- matrix(0,1000,length(unique(cf$male_index)))
 a_mom_z <- matrix(0,1000,length(unique(cf$mom_index)))
-		 
-		 
+ 		 
 		 
 par(mfrow=c(1,2))
 dsi.seq <- seq(min(cf$s_rDSI),max(cf$s_rDSI),length.out=30)
@@ -232,8 +231,6 @@ plot(precis(m_effort_lac3))
 plot(m_effort_lac3)
 par(mfrow=c(1,1))
 		 
-	  
-
 #ME1	  
 m_effort_lac1 <- map2stan(  
 alist(
